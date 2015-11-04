@@ -1,6 +1,9 @@
 from flask import Flask
-app = Flask(__name__)
+from flask.ext.sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
+app.config.from_pyfile('config.py')
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello():
